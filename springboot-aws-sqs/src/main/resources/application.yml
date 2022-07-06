@@ -1,0 +1,12 @@
+server:
+  port: 8099
+cloud:
+  aws:
+    region:
+      static: ap-south-1
+      auto: false
+    credentials:
+      access-key: <access-key>
+      secret-key: <secret-key-required>
+    end-point:
+      uri: https://sqs.ap-south-1.amazonaws.com/287280705143/demo-queue
