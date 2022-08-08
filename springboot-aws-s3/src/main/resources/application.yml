@@ -1,0 +1,10 @@
+server:
+  port: 8099
+cloud:
+  aws:
+    region:
+      static: us-east-2
+      auto: false
+    credentials:
+      access-key: <access-key>
+      secret-key: <secret-key>
