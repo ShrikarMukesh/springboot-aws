@@ -2,7 +2,7 @@ package com.aws.s3.controller;
 
 import com.amazonaws.services.s3.model.Bucket;
 import com.aws.s3.config.BucketObjectRepresentaion;
-import com.aws.s3.service.S3Service;
+import com.aws.s3.service.S3BucketService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import java.io.IOException;
@@ -12,9 +12,9 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping(value = "/buckets/")
 @RequiredArgsConstructor
-public class ControllerTests {
+public class S3BucketController {
 
-    private final S3Service s3Service;
+    private final S3BucketService s3Service;
 
     @PostMapping(value = "/{bucketName}")
     public void createBucket(@PathVariable String bucketName){
@@ -28,19 +28,15 @@ public class ControllerTests {
         return names;
     }
 
+
     @DeleteMapping(value = "/{bucketName}")
     public void deleteBucket(@PathVariable String bucketName){
         s3Service.deleteBucket(bucketName);
     }
 
-    @PostMapping(value = "/{bucketName}/objects")
-    public void createObject(@PathVariable String bucketName, @RequestBody BucketObjectRepresentaion representaion) throws IOException {
-        s3Service.putObject(bucketName, representaion,true);
-    }
-
-    @PatchMapping(value = "/{bucketName}/objects/{objectName}/{bucketSource}")
-    public void moveObject(@PathVariable String bucketName, @PathVariable String objectName, @PathVariable String bucketSource) throws IOException {
-        s3Service.moveObject(bucketName, objectName, bucketSource);
-    }
+//    @DeleteMapping(value = "/many/{bucketName}")
+//    public void deleteMultipleObjectsFromBucket(@PathVariable String bucketName, @RequestBody ){
+//        s3Service.deleteMultipleObjects(bucketName);
+//    }
 
 }

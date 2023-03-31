@@ -6,5 +6,5 @@ cloud:
       static: us-east-2
       auto: false
     credentials:
-      access-key: <access-key>
-      secret-key: <secret-key>
+      access-key: AKIAWPO5UQENUQTV4SYE
+      secret-key: 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
